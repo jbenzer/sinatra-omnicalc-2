@@ -23,8 +23,8 @@ get("/subtract") do
 end
 
 get("/wizard_subtract") do
-  @first_num = params.fetch("first_number").gsub(/[^0-9]/, "").to_f
-  @second_num = params.fetch("second_number").gsub(/[^0-9]/, "").to_f
+  @first_num = params.fetch("first_number").to_f
+  @second_num = params.fetch("second_number").to_f
 
   @result =  @second_num - @first_num 
 
@@ -36,8 +36,8 @@ get("/multiply") do
 end
 
 get("/wizard_multiply") do
-  @first_num = params.fetch("first_number").gsub(/[^0-9]/, "").to_f
-  @second_num = params.fetch("second_number").gsub(/[^0-9]/, "").to_f
+  @first_num = params.fetch("first_number").to_f
+  @second_num = params.fetch("second_number").to_f
 
   @result =  @second_num * @first_num 
   erb(:mult_result)
@@ -48,5 +48,9 @@ get("/divide") do
 end
 
 get("/wizard_divide") do
+  @first_num = params.fetch("first_number").to_f
+  @second_num = params.fetch("second").to_f
+
+  @result =   @first_num / @second_num
   erb(:div_result)
 end
